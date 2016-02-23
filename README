@@ -1,0 +1,109 @@
+Benchmarking Data Set for Peak Callers
+--------------------------------------
+
+This data set is designed to benchmark peak caller. It includes an
+aritifical genome, simulated background and experiment reads of
+different qualities as well as the gold standard for the peak
+locations. If you use this data set for benchmarks please cite the
+Sierra Platinum paper.
+
+Description of the directory contents
+
+1)genome:
+
+genome.fa - sequence of the artifical genome with 10 chromsomes
+            (CHR1,...,CHR10) in fasta format.
+
+
+2) benchmarkingLocation:
+
+goldstandard.bed - genomic position of all modified histones
+                   (each line corresponds to one histone)
+goldstandard_merged.bed - genomic position of the modifed domains
+                          (subsequent modified histone merged into one
+                          domain)
+goldstandard_broad.bed - genomic location of the modified domains when
+                         assuming broad peaks (subsequent domains not
+                         more than 400bp apart from each other are
+                         merged into one broad domain)
+
+3) experimentsFastq and backgroundFastq:
+
+In the directories experimentsFastq and backgroundFastq, the simulated
+sequencing reads for all benchmarks are contained. In the table below,
+experiment and background files are matched and the benchmark
+characteristics are annotated. Noise signal indicated whether the
+reads are generated for the gold stardard signal or for a random
+signal. The basewise quality indicates whether the average quality of
+the bases (high, mid, low). The under-sequenced, over-sequenced, and
+normal sequencing depth are annotated in the column 'sequencing
+depth'. The enrichment of the experiment signal over the background
+signal is listed as low, normal, or high signal-2-noise. For each
+combination of conditions, at least two replicates are generated.
+
+experiment File					background file						noise signal	basewise quality	sequencing depth	signal-2-noise
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+experimentsFastq/exp1.fastq.gz                 	backgroundFastq/wce1.fastq.gz                 	 	    no			high		     normal		     normal	
+experimentsFastq/exp2.fastq.gz		      	backgroundFastq/wce2.fastq.gz		      		    no			high		     normal		     normal
+experimentsFastq/exp3.fastq.gz		      	backgroundFastq/wce3.fastq.gz		      		    no			high		     normal		     normal
+experimentsFastq/exp4.fastq.gz		      	backgroundFastq/wce4.fastq.gz		      		    no			high		     normal		     normal
+experimentsFastq/exp5.fastq.gz		      	backgroundFastq/wce5.fastq.gz		      		    no			high		     normal		     normal
+experimentsFastq/exp6.fastq.gz		      	backgroundFastq/wce6.fastq.gz		      		    no			high		     normal		     normal
+experimentsFastq/exp_high_0.01_2_1.fastq.gz    	backgroundFastq/wce_high_0.01_2_1.fastq.gz    		    no			high		     under		     low   		     
+experimentsFastq/exp_high_0.01_2_2.fastq.gz    	backgroundFastq/wce_high_0.01_2_2.fastq.gz    		    no			high		     under		     low   		     
+experimentsFastq/exp_high_0.01_4_1.fastq.gz    	backgroundFastq/wce_high_0.01_4_1.fastq.gz    		    no			high		     under		     normal
+experimentsFastq/exp_high_0.01_4_2.fastq.gz    	backgroundFastq/wce_high_0.01_4_2.fastq.gz    		    no			high		     under		     normal
+experimentsFastq/exp_high_0.01_5_1.fastq.gz    	backgroundFastq/wce_high_0.01_5_1.fastq.gz    		    no			high		     under		     high  
+experimentsFastq/exp_high_0.01_5_2.fastq.gz    	backgroundFastq/wce_high_0.01_5_2.fastq.gz    		    no			high		     under		     high  
+experimentsFastq/exp_high_0.1_2_1.fastq.gz     	backgroundFastq/wce_high_0.1_2_1.fastq.gz     		    no			high		     normal		     low   
+experimentsFastq/exp_high_0.1_2_2.fastq.gz     	backgroundFastq/wce_high_0.1_2_2.fastq.gz     		    no			high		     normal		     low   
+experimentsFastq/exp_high_0.1_4_1.fastq.gz     	backgroundFastq/wce_high_0.1_4_1.fastq.gz     		    no			high		     normal		     normal
+experimentsFastq/exp_high_0.1_4_2.fastq.gz     	backgroundFastq/wce_high_0.1_4_2.fastq.gz     		    no			high		     normal		     normal
+experimentsFastq/exp_high_0.1_5_1.fastq.gz     	backgroundFastq/wce_high_0.1_5_1.fastq.gz     		    no			high		     normal		     high  
+experimentsFastq/exp_high_0.1_5_2.fastq.gz     	backgroundFastq/wce_high_0.1_5_2.fastq.gz     		    no			high		     normal		     high  
+experimentsFastq/exp_high_0.4_2_1.fastq.gz     	backgroundFastq/wce_high_0.4_2_1.fastq.gz     	            no			high		     over		     low   
+experimentsFastq/exp_high_0.4_2_2.fastq.gz	backgroundFastq/wce_high_0.4_2_2.fastq.gz	            no			high		     over		     low   
+experimentsFastq/exp_high_0.4_4_1.fastq.gz      backgroundFastq/wce_high_0.4_4_1.fastq.gz                   no			high		     over		     normal
+experimentsFastq/exp_high_0.4_4_2.fastq.gz      backgroundFastq/wce_high_0.4_4_2.fastq.gz                   no			high		     over		     normal
+experimentsFastq/exp_high_0.4_5_1.fastq.gz      backgroundFastq/wce_high_0.4_5_1.fastq.gz                   no			high		     over		     high   
+experimentsFastq/exp_high_0.4_5_2.fastq.gz      backgroundFastq/wce_high_0.4_5_2.fastq.gz                   no			high		     over		     high   
+experimentsFastq/exp_mid_0.01_2_1.fastq.gz      backgroundFastq/wce_mid_0.01_2_1.fastq.gz                   no                  mid                  under		     low    
+experimentsFastq/exp_mid_0.01_2_2.fastq.gz      backgroundFastq/wce_mid_0.01_2_2.fastq.gz                   no                  mid                  under		     low    
+experimentsFastq/exp_mid_0.01_4_1.fastq.gz      backgroundFastq/wce_mid_0.01_4_1.fastq.gz                   no                  mid                  under		     normal 
+experimentsFastq/exp_mid_0.01_4_2.fastq.gz      backgroundFastq/wce_mid_0.01_4_2.fastq.gz                   no                  mid                  under		     normal 
+experimentsFastq/exp_mid_0.01_5_1.fastq.gz      backgroundFastq/wce_mid_0.01_5_1.fastq.gz                   no                  mid                  under		     high   
+experimentsFastq/exp_mid_0.01_5_2.fastq.gz      backgroundFastq/wce_mid_0.01_5_2.fastq.gz                   no                  mid                  under		     high   
+experimentsFastq/exp_mid_0.1_2_1.fastq.gz       backgroundFastq/wce_mid_0.1_2_1.fastq.gz                    no                  mid                  normal                  low
+experimentsFastq/exp_mid_0.1_2_2.fastq.gz       backgroundFastq/wce_mid_0.1_2_2.fastq.gz                    no                  mid                  normal                  low
+experimentsFastq/exp_mid_0.1_4_1.fastq.gz       backgroundFastq/wce_mid_0.1_4_1.fastq.gz                    no                  mid                  normal                  normal
+experimentsFastq/exp_mid_0.1_4_2.fastq.gz       backgroundFastq/wce_mid_0.1_4_2.fastq.gz        	    no			mid		     normal		     normal											  
+experimentsFastq/exp_mid_0.1_5_1.fastq.gz	backgroundFastq/wce_mid_0.1_5_1.fastq.gz		    no			mid		     normal		     high  											  
+experimentsFastq/exp_mid_0.1_5_2.fastq.gz	backgroundFastq/wce_mid_0.1_5_2.fastq.gz		    no			mid		     normal		     high  											  
+experimentsFastq/exp_mid_0.4_2_1.fastq.gz	backgroundFastq/wce_mid_0.4_2_1.fastq.gz		    no			mid		     over		     low   											  
+experimentsFastq/exp_mid_0.4_2_2.fastq.gz	backgroundFastq/wce_mid_0.4_2_2.fastq.gz		    no			mid		     over		     low   											  
+experimentsFastq/exp_mid_0.4_4_1.fastq.gz	backgroundFastq/wce_mid_0.4_4_1.fastq.gz		    no			mid		     over		     normal											  
+experimentsFastq/exp_mid_0.4_4_2.fastq.gz	backgroundFastq/wce_mid_0.4_4_2.fastq.gz		    no			mid		     over		     normal											  
+experimentsFastq/exp_mid_0.4_5_1.fastq.gz	backgroundFastq/wce_mid_0.4_5_1.fastq.gz		    no			mid		     over		     high  											  
+experimentsFastq/exp_mid_0.4_5_2.fastq.gz	backgroundFastq/wce_mid_0.4_5_2.fastq.gz		    no			mid		     over		     high  											  
+experimentsFastq/exp_low_0.01_2_1.fastq.gz      backgroundFastq/wce_low_0.01_2_1.fastq.gz                   no                  low                  under                   low
+experimentsFastq/exp_low_0.01_2_2.fastq.gz      backgroundFastq/wce_low_0.01_2_2.fastq.gz                   no                  low                  under                   low
+experimentsFastq/exp_low_0.01_4_1.fastq.gz      backgroundFastq/wce_low_0.01_4_1.fastq.gz                   no                  low                  under                   normal
+experimentsFastq/exp_low_0.01_4_2.fastq.gz      backgroundFastq/wce_low_0.01_4_2.fastq.gz                   no                  low                  under                   normal
+experimentsFastq/exp_low_0.01_5_1.fastq.gz      backgroundFastq/wce_low_0.01_5_1.fastq.gz                   no                  low                  under                   high
+experimentsFastq/exp_low_0.01_5_2.fastq.gz      backgroundFastq/wce_low_0.01_5_2.fastq.gz                   no                  low                  under                   high
+experimentsFastq/exp_low_0.1_2_1.fastq.gz       backgroundFastq/wce_low_0.1_2_1.fastq.gz                    no                  low                  normal                  low
+experimentsFastq/exp_low_0.1_2_2.fastq.gz       backgroundFastq/wce_low_0.1_2_2.fastq.gz                    no                  low                  normal                  low
+experimentsFastq/exp_low_0.1_4_1.fastq.gz       backgroundFastq/wce_low_0.1_4_1.fastq.gz                    no                  low                  normal                  normal
+experimentsFastq/exp_low_0.1_4_2.fastq.gz       backgroundFastq/wce_low_0.1_4_2.fastq.gz                    no                  low                  normal                  normal
+experimentsFastq/exp_low_0.1_5_1.fastq.gz       backgroundFastq/wce_low_0.1_5_1.fastq.gz                    no                  low                  normal                  high
+experimentsFastq/exp_low_0.1_5_2.fastq.gz       backgroundFastq/wce_low_0.1_5_2.fastq.gz                    no                  low                  normal                  high
+experimentsFastq/exp_low_0.4_2_1.fastq.gz       backgroundFastq/wce_low_0.4_2_1.fastq.gz                    no                  low                  over                    low
+experimentsFastq/exp_low_0.4_2_2.fastq.gz       backgroundFastq/wce_low_0.4_2_2.fastq.gz                    no                  low                  over                    low
+experimentsFastq/exp_low_0.4_4_1.fastq.gz       backgroundFastq/wce_low_0.4_4_1.fastq.gz                    no                  low                  over                    normal
+experimentsFastq/exp_low_0.4_4_2.fastq.gz       backgroundFastq/wce_low_0.4_4_2.fastq.gz                    no                  low                  over                    normal
+experimentsFastq/exp_low_0.4_5_1.fastq.gz       backgroundFastq/wce_low_0.4_5_1.fastq.gz                    no                  low                  over                    high
+experimentsFastq/exp_low_0.4_5_2.fastq.gz       backgroundFastq/wce_low_0.4_5_2.fastq.gz                    no                  low                  over                    high
+experimentsFastq/exp_noise1.fastq.gz		backgroundFastq/wce_noise1.fastq.gz			    yes			high		     normal		     normal											  
+experimentsFastq/exp_noise2.fastq.gz		backgroundFastq/wce_noise2.fastq.gz			    yes			high		     normal		     normal										  
+experimentsFastq/exp_noise3.fastq.gz		backgroundFastq/wce_noise3.fastq.gz			    yes			high		     normal		     normal										  
+
